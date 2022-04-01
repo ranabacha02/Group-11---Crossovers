@@ -1,0 +1,21 @@
+<!-- this is a template that handles ""delete room"" requests-->
+<!-- it is a dynamic template, so it will be re-used to delete comments or other-->
+
+{% extends 'main.html' %}
+
+{% block content%}
+
+<div>
+	<form method="POST" action="" >	<!-- post request, action=same url we're at-->
+		{% csrf_token %}			<!-- this token is sent on every form submit to make sure no malicious attempt-->
+		{{form.as_p}}				<!-- structures form-->
+		<p>Are you sure want to delete "{{obj}}" ?</p>
+		<a href="{{request.META.HTTP_REFERER}}">Back</a> <!-- this sends user to prev page-->
+		<input type="submit"  value="Confirm"	/> <!-- value is actual text-->
+	</form>
+
+</div>
+
+
+
+{% endblock content %}
