@@ -1,5 +1,4 @@
 # Group-11---Crossovers 
 
 
-
-This file include up to the creation of databases
+EECE 430 - Software Engineering Group 11 project named Crossovers; A sports club web application.
