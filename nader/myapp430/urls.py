@@ -8,4 +8,5 @@ urlpatterns = [
     path('shop_list/', views.shop_list, name='shop_list'),
     path('schedule/<int:year>/<str:month>/', views.schedule, name='schedule'),
     path('add_event/', views.add_event, name='add_event'),
+    path('edit_event/<event_id>/', views.edit_event, name='edit_event'),
 ]
