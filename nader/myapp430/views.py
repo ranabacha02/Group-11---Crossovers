@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from django.contrib import admin
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from .filters import ShopFilter
 from .models import ShopItem
 import calendar
 from calendar import HTMLCalendar
 from datetime import datetime 
+from .forms import EventForm
 
 # Create your views here.
 def HomePage(request):
@@ -45,3 +46,16 @@ def schedule(request, year=datetime.now().year, month=datetime.now().strftime('%
         'time': time,
     })
 
+def add_event(request):
+    submitted = False
+    if request.method == "POST":
+        form = EventForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/add_event?submitted=True')
+    else:
+        form = EventForm
+        if 'submitted' in request.GET:
+            submitted = True
+    
+    return render(request, 'schedule/add_event.html', {'form':form, 'submitted':submitted})

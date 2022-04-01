@@ -95,4 +95,13 @@ class OrderTicket(models.Model):
 	date_created = models.DateTimeField(auto_now_add=True, null=True)
 	status = models.CharField(max_length=200, choices=STATUS, null=True)
 
-	
+class Event(models.Model):
+	name = models.CharField('Event Name', max_length=120)
+	event_date = models.DateTimeField('Event Date')
+	manager = models.ForeignKey(trainee, blank=True, null=True, on_delete=models.SET_NULL)
+	description = models.TextField(blank=True)
+	attendees = models.ManyToManyField(fan, blank=True)
+	approved = models.BooleanField('Aprroved', default=False)
+
+	def __str__(self):
+		return self.name
