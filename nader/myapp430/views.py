@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib import admin
 from django.http import HttpResponse, HttpResponseRedirect
 from .filters import ShopFilter
-from .models import ShopItem
+from .models import ShopItem, Event
 import calendar
 from calendar import HTMLCalendar
 from datetime import datetime 
@@ -61,7 +61,7 @@ def add_event(request):
     return render(request, 'schedule/add_event.html', {'form':form, 'submitted':submitted})
 
 def edit_event(request, event_id):
-    event = Event.objects.get(pk=venue_id)
+    event = Event.objects.get(pk=event_id)
     form = EventForm(request.POST or None, instance=event)
     if form.is_valid():
         form.save()
