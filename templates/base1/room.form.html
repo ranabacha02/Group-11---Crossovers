@@ -1,0 +1,18 @@
+<!-- represent a form for updating and creating room-->
+
+{% extends 'main.html' %}
+
+{% block content%}
+
+<div>
+	<form method="POST" action="" >	<!-- post method for create/update data, action=same url we're at-->
+		{% csrf_token %}			<!-- this token is sent on every form submit to make sure no malicious attempt-->
+		{{form.as_p}}				<!-- structures form-->
+		<input type="submit"  value="Submit"	/> <!-- value is actual text-->
+	</form>
+
+</div>
+
+
+
+{% endblock content %}

@@ -1,0 +1,48 @@
+<!-- 1 in 2 form, one for register one for login-->
+
+{% extends 'main.html' %}
+
+{% block content %}
+
+{% if page == 'login' %} <!--checks if req is login, if not, then go to register-->
+<div>
+	<form method="POST" action="">				<!-- we'll build a login form-->
+		{% csrf_token %}	
+		
+		<label>Username:</label>
+		<input type="text"  name="username" placeholder="Enter Username"	/>
+		
+		<label>Password:</label>
+		<input type="password"  name="password" placeholder="Enter Password"	/>
+		<input type="submit"  value="Login"		/>
+	</form>
+
+	<p> Haven't signed up yet? </p>
+	<a href="{% url 'register' %}"> Sign Up</a>
+</div>
+
+{%else%}
+
+<div>
+	<form method="POST" action="">				<!-- we'll build a login form-->
+		{% csrf_token %}	
+		
+		{{form.as_p}}
+
+		<input type="radio" id="fan" name="fav_language" value="FAN">
+		<label for="fan">Fan</label><br>
+		<input type="radio" id="css" name="fav_language" value="CSS">
+		<label for="css">Coach</label><br>
+		<input type="radio" id="javascript" name="fav_language" value="JavaScript">
+		<label for="javascript">Member</label>
+		<br><br>
+
+		<input type="submit"  value="Register"		/>
+	</form>
+	<p> Already signed up? </p>
+	<a href="{% url 'login' %}"> Log in</a>
+</div>
+
+{%endif%}
+
+{% endblock content %}
