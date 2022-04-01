@@ -1,0 +1,10 @@
+{% extends 'shop/base.html' %}
+
+<h1>Shop Items</h1>
+<ul>
+{% for ShopItem in object_list %}
+    <li>{{ ShopItem.date_created|date }} - {{ ShopItem.price }}</li>
+{% empty %}
+    <li>No Shop Items yet.</li>
+{% endfor %}
+</ul>
