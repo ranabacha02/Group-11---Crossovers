@@ -13,6 +13,7 @@ DJANGO-3.0.1: sudo pipinstall Django == 3.0.1
 PILLOW - 9.1.0
 These libraries are automatically installed:
 
+<img width="249" alt="image" src="https://user-images.githubusercontent.com/85786021/165918244-a0a43c6c-1e53-4392-87a8-08b4e4ae35e5.png">
 
 
 
@@ -45,6 +46,3 @@ Trainee
 Yasmina
 Yas12345
 
-
-
-![image](https://user-images.githubusercontent.com/85786021/165917822-15d8ce8c-add1-4a66-8000-eea512359cbd.png)
